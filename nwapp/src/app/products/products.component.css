@@ -1,0 +1,14 @@
+.table-mat{
+    width:100%;
+}
+
+.table-mat tr{
+    display:flex;
+}
+
+.table-mat td, .table-mat th{    
+    display:flex; 
+    flex-grow: 1;
+    width:25%;
+    padding:10px 5px;
+}

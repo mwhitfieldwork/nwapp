@@ -3,6 +3,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {RouterModule, Routes} from '@angular/router';
+import { ProductsModule } from './products/products.module';
+
+const routes : Routes =  [
+  {path:'products',
+  loadChildren: './products/products.module#ProductsModule'},
+  {path:'', redirectTo:'/products', pathMatch:'full'}
+]
+
 
 @NgModule({
   declarations: [
@@ -10,7 +19,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

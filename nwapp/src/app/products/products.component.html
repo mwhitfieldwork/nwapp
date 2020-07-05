@@ -1,0 +1,122 @@
+<p>products works!</p>
+
+<div>
+    <mat-table mat-table [dataSource]="dataSource" matSort class="table-mat mat-elevation-z8">
+    
+      <ng-container matColumnDef="displayName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.displayName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
+        <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+    
+      <!-- <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> first Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="team">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> team </th>
+        <td mat-cell *matCellDef="let element"> {{element.team}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subTeam">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub Team </th>
+        <td mat-cell *matCellDef="let element"> {{element.subTeam}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hireDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hire Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.hireDate}} </td>
+      </ng-container> -->
+<!-- 
+      <ng-container matColumnDef="fax"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fax </th>
+        <td mat-cell *matCellDef="let element"> {{element.fax}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="zip"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Zip </th>
+        <td mat-cell *matCellDef="let element"> {{element.zip}} </td>
+      </ng-container> -->
+
+      <!-- <ng-container matColumnDef="officeCity"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Office City </th>
+        <td mat-cell *matCellDef="let element"> {{element.officeCity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="teamLeader"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Leader </th>
+        <td mat-cell *matCellDef="let element"> {{element.teamLeader}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="office"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Office </th>
+        <td mat-cell *matCellDef="let element"> {{element.office}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="pictureUrl"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Picture URL </th>
+        <td mat-cell *matCellDef="let element"> {{element.pictureUrl}} </td>
+      </ng-container> -->
+
+      <!-- <ng-container matColumnDef="extension"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Extension</th>
+        <td mat-cell *matCellDef="let element"> {{element.extension}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="skills"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Skills</th>
+        <td mat-cell *matCellDef="let element"> {{element.skills}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="interests"> 
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> interests</th>
+        <td mat-cell *matCellDef="let element"> {{element.interests}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+        <td mat-cell *matCellDef="let element"> <button class="btn btn-primary" (click)="editProduct(element)" >Edit</button></td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+      <!-- <mat-row *matRowDef="let product; columns: displayedColumns;"
+      class="product"
+      matRipple
+      [routerLink]="'/apps/e-commerce/products/'+product.id+'/'+product.handle">
+    </mat-row> -->
+    </mat-table>
+    
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"  showFirstLastButtons></mat-paginator>
+    
+    <button class="btn btn-success" >Add New Product</button>
+    
+    </div>
+
