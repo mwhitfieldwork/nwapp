@@ -1,0 +1,88 @@
+<p>edit works!</p> 
+
+<form (ngSubmit)="save()" [formGroup]="customerForm">
+    <!-- F Name -->
+    <div class="form-group row mb-2">
+
+        <label 
+        class="col-md-2 col-form-label"
+        for="productNameId">Product Name</label>
+
+        <div class="col-md-8">
+            <input 
+            class="form-control"
+            id="productNameId" 
+            type="text"
+            placeholder="Product Name (required)"
+            formControlName="productName"
+            [ngClass]="{'is-invalid': (customerForm.get('productName').touched || customerForm.get('productName').dirty) && !customerForm.get('productName').valid }" />
+            
+            <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('productName').errors?.required" class="error"> 
+                    Please Enter your product name.
+                </span>
+                <span *ngIf="customerForm.get('productName').errors?.minlength" class="error"> 
+                    Product Name must be longer thatn 3 characters.
+                </span>
+            </span>
+        </div>
+
+    </div>
+        <!-- Description -->
+        <div class="form-group row mb-2">
+
+            <label 
+            class="col-md-2 col-form-label"
+            for="companyId">Company</label>
+    
+            <div class="col-md-8">
+                <input 
+                class="form-control"
+                id="companyId" 
+                type="text"
+                placeholder="Company (required)"
+                formControlName="company"
+                [ngClass]="{'is-invalid': (customerForm.get('company').touched || customerForm.get('company').dirty) && !customerForm.get('company').valid }" />
+                
+                <span class="invalid-feedback">
+                    <span *ngIf="customerForm.get('company').errors?.required" class="error"> 
+                        Please Enter Company
+                    </span>
+                    <span *ngIf="customerForm.get('company').errors?.minlength" class="error"> 
+                        Company must be longer thatn 3 characters.
+                    </span>
+                </span>
+            </div>
+    
+        </div>
+            <!-- Price -->
+    <div class="form-group row mb-2">
+
+        <label 
+        class="col-md-2 col-form-label"
+        for="priceId">Price</label>
+
+        <div class="col-md-8">
+            <input 
+            class="form-control"
+            id="titleId" 
+            type="text"
+            placeholder="Title (required)"
+            formControlName="title"
+            [ngClass]="{'is-invalid': (customerForm.get('title').touched || customerForm.get('title').dirty) && !customerForm.get('title').valid }" />
+            
+            <span class="invalid-feedback">
+                <span *ngIf="customerForm.get('title').errors?.required" class="error"> 
+                    Please Enter a better title.
+                </span>
+                <span *ngIf="customerForm.get('title').errors?.minlength" class="error"> 
+                    Title must be longer thatn 3 characters.
+                </span>
+            </span>
+        </div>
+
+
+        <button class="btn btn-secondary" type="submit">Save</button>
+        <button class="btn btn-warning" (click)="deleteProduct()">Delete</button>
+    </div>
+    </form>

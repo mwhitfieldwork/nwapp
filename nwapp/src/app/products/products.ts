@@ -19,4 +19,5 @@ export interface IProducts {
     extension?: number;
     skills?: any;
     interests?: any;
+    rating:number;
 }

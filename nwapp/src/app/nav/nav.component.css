@@ -1,0 +1,25 @@
+#navigation {
+    background-color:#000;
+    color:#fff;
+}
+
+#navigation nav ul {
+    display: flex;
+}
+
+#navigation li {
+    list-style-type: none;
+    padding:10px;
+    border-right:1px solid #eee;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigation li a {
+    color:#fff;
+}
+
+#logo{
+    width:30%;
+}

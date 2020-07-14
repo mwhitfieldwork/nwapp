@@ -1,21 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IProducts } from  './products';
 import {catchError, tap, map } from 'rxjs/operators'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  url: string = 'http://localhost:3500/northwind';
+  url: string = 'api/product';
 
-  constructor(private _http:HttpClient) { }
+  nwDataChanged:BehaviorSubject<any>;
+
+  constructor(private _http:HttpClient) {
+    this.nwDataChanged = new BehaviorSubject([]);
+   }
 
   getProducts():Observable<IProducts[]> {
     var response = this._http.get<IProducts[]>(this.url)
     .pipe(
-      tap(items => console.log(items)),
+      tap(items => {
+        this.nwDataChanged.next(items);
+        console.log(items)
+      }),
       catchError(this.handleError),
     )
 

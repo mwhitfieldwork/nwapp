@@ -5,24 +5,32 @@ import { MaterialModule } from '../shared/material/material.module';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ProductsComponent } from './products.component';
-import { ProductsService } from './products.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { DialogOverviewExampleDialog } from './products.component';
 
+import { ProductsService } from './products.service';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardModule } from '../dashboard/dashboard.module'
 
 const routes:Routes = [
-  {path: '', component: ProductsComponent}
+  {path: 'products', component: ProductsComponent}
 ]
 
 @NgModule({
-  declarations: [ProductsComponent],
+  declarations: [
+    ProductsComponent,
+    DialogOverviewExampleDialog],
   providers:[ProductsService],
-  exports:[ProductsComponent],
+  exports:[
+    ProductsComponent,
+    DialogOverviewExampleDialog],
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    DashboardModule
   ]
 })
 export class ProductsModule { }

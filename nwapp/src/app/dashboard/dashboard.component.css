@@ -1,0 +1,118 @@
+:root {
+    --cpsBlue: #061a53;
+    --layoutText:#fff;
+    --detailText:#000;
+    --callOutColor:#ffd22b;
+    --detailSmallText: .7em;
+    --tableHeaderColor: #eaf5f5;
+}
+
+#main-wrapper {
+    background-color:#fff;
+    padding:20px 20px 0 20px;
+    width:80%;
+    max-width:1200px;
+    margin: 0 auto;
+}
+
+#page {
+    background-color: #f1f5f7;
+    padding:20px;
+}
+
+body {
+    background-color:#eaeced;
+    font-family: 'Roboto', sans-serif;
+    font-size: calc(12px + 4 * ((100vw - 300px) / (1600 - 300)));
+}
+
+#graphs {
+    display:flex;
+    justify-content: space-between;
+}
+
+.data-visual-wrapper {
+    width: 47%;
+    margin:10px;
+}
+
+.skills {
+    display: flex;
+    justify-content: space-between;
+    height:85%;
+    font-size: .7em;
+}
+
+.data-visual {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-skills-visual {
+    display:flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.bar-wrapper {
+    width:100%;
+}
+
+.skills .bar-wrapper {
+    transform: rotate(180deg) scaleX(-1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.skills .bar-wrapper span{
+    transform: rotate(180deg) scaleX(-1);
+}
+
+.skills .bar-title {
+    position: absolute;
+    bottom: -15px;
+}
+
+.demographic-wrapper {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:5px;
+    font-size:.8em;
+}
+
+.demographic-wrapper span{
+    width:20%;
+} 
+
+.demographic-wrapper span {
+    width:35%;
+}
+
+.bar-wrapper {
+    font-size:var(--detailSmallText);
+    font-weight:bold;
+    background-color: #f3f3f3;
+    position:relative;
+}
+
+.bar {
+    display:flex;
+    /* width:0; */
+    background-color: red;
+    padding:10px 0 10px 0px;
+}
+
+.bar-percent {
+    position:absolute;
+    left:10px;
+    top:50%;
+    transform:translateY(-50%);
+    font-weight: bold;
+}
+
+.skills.bar {
+    display:flex;
+    /* width:0; */
+    background-color: #42a5f5;
+    padding:10px 0 10px 0px;
+}
