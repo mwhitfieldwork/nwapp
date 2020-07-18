@@ -14,9 +14,13 @@ export class DashboardComponent implements OnInit {
   dashboardData:IProducts[];
   private _unsubscribeAll: Subject<any>;
   sub:Subscription;
+  sub2:Subscription;
   popularInterests: any[] = [];
   popularSkills:any[] = [];
+  DogImgData:any [] = [];
   graphsPoints:any;
+  dogImgs:any[] =["http://cdn.shibe.online/shibes/185eaaffda7868b08c36f33f9086bbd2b600003c.jpg","http://cdn.shibe.online/shibes/9fa71750a2e2c68cfb7b8ce10275544f95b2f1cc.jpg","http://cdn.shibe.online/shibes/c608636ae06a2a6123f76e4497fe7503593cd52a.jpg","http://cdn.shibe.online/shibes/6df66329dbec922a16b0241f8b8de756adee0da1.jpg","http://cdn.shibe.online/shibes/beac35e09023a47fcf9a95bf1582212facb2e010.jpg","http://cdn.shibe.online/shibes/244f7976a92786ebcd792468f7400e905604bd1d.jpg","http://cdn.shibe.online/shibes/34a3e52e25ec26388ba698bd5e159d8eefc46eaf.jpg","http://cdn.shibe.online/shibes/7d37d4fe44e984a7a5b68c4da8600832f56ea61d.jpg","http://cdn.shibe.online/shibes/a902deb6daa0e22504c68117ec6bae0b127f8fee.jpg","http://cdn.shibe.online/shibes/6fec386a1374a4594634250a397e9c27dd1b5d36.jpg","http://cdn.shibe.online/shibes/d832d232780d6b7384ef5b5b63024782ef330fbf.jpg","http://cdn.shibe.online/shibes/0a4fa1028dd51edb4495867d39b1e1954885761c.jpg","http://cdn.shibe.online/shibes/e5e314f0e5d5046007234480f5b24a0bce200451.jpg","http://cdn.shibe.online/shibes/65cd362648ad7990006772f2bc8a686c60d3304f.jpg","http://cdn.shibe.online/shibes/d0f9124857d2d42dd42b3fbd36c1fc2af16a2c4e.jpg","http://cdn.shibe.online/shibes/f25ff356db2feef59aed4a86dd375a4a587cdb3f.jpg","http://cdn.shibe.online/shibes/5327399d960e8f8b1eaa0719fbe122247e8491b4.jpg","http://cdn.shibe.online/shibes/ef877869b01c2632d855e96879ae228df56d63ea.jpg","http://cdn.shibe.online/shibes/dbdbad13347d4c35554592b049806a073da8c896.jpg","http://cdn.shibe.online/shibes/edcf54128bddd58bfce90b275a0f0049a079c263.jpg","http://cdn.shibe.online/shibes/23d7fc63bee8f0c2b2b0b20897913f8b1a8d1b28.jpg","http://cdn.shibe.online/shibes/e898ff7c570df6f01362b46bd4528c680b7941b0.jpg","http://cdn.shibe.online/shibes/a31850a7767b210ea08664daf2ce3b18e780b58f.jpg","http://cdn.shibe.online/shibes/cacfc7403f7d624f2907df69435636603b179225.jpg","http://cdn.shibe.online/shibes/7612dd2ce4e459e64497a211f67320a8b9ceed33.jpg"]
+  doglist: any[] = [];
 
   constructor(private _productsService :ProductsService ) { 
     this._unsubscribeAll = new Subject();
@@ -28,6 +32,7 @@ export class DashboardComponent implements OnInit {
        this.dashboardData = nwdata;
         this.interestsHorizontalGraph();
         this.skillsVerticleGraph();
+        this.getNBAData();
     })
 
     // this.graphsPoints = [
@@ -109,7 +114,7 @@ export class DashboardComponent implements OnInit {
      
 
     // make list of percentages
-    for(let i=0; i< 8 ; i++){
+    for(let i=0; i< 7; i++){
       let randomIndex = Math.floor(Math.random() * skillsNames.length);
       //loop through each interest, count how many have instance names appear in the list
       let count:number = allSkills.filter(x => x === skillsNames[randomIndex]).length;
@@ -128,7 +133,7 @@ export class DashboardComponent implements OnInit {
      //get the value of the highest percent
      let interestPercentMax = Math.max.apply(Math, allSkillsPercentages.map(x => x.percent));
 
-     for(let i=0; i< 8 ; i++){
+     for(let i=0; i< 7 ; i++){
       let randomindex = allSkillsPercentages[i].index;
       let count:number = allSkills.filter(x => x === skillsNames[randomindex]).length;
       let groupedinterestPercent = ((allSkillsPercentages[i].percent/interestPercentMax) * 100)
@@ -143,6 +148,29 @@ export class DashboardComponent implements OnInit {
     console.log(this.popularSkills)
   }
 
+  getNBAData(){
+    this.sub2 =  this._productsService.getDogData()
+    .subscribe(dogdata => {
+     let i= 0;
+     for(let d in dogdata.message){
+       if(dogdata.message[d].length > 2){
+          let doglistObj = {
+            name:d,
+            list:dogdata.message[d],
+            img: this.dogImgs[i]
+          }
+          this.doglist.push(doglistObj);
+          i++;
+         }
+       }
+      //loop through object 
+      //grap properties with elements
+     //this.DogImgData = fillDogList;
+     console.log(this.doglist)
+    });
+  }
+
+  
   ngOnDestroy(): void
   {
     this.sub.unsubscribe()

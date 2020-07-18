@@ -1,49 +1,40 @@
 <app-nav></app-nav>
-<main id="main-wrapper">
-    <div id="page">
-        <header id="heading">
-            <!-- <h1>Northwind Welcomes you</h1> -->
-        </header>
-        <section id="graphs" *ngIf="popularInterests">
-            <div  class="data-visual-wrapper">
-            <h2>Interests</h2>
-                <mat-card>
-                    <mat-card-title>Interests</mat-card-title>
-                        <article *ngFor="let interest of popularInterests" class="data-visual">
-                            <div class="demographic-wrapper"><span class="bar-name">{{interest.name}}</span><div class="bar-wrapper"><div class="bar" [ngStyle]="{'height' : '30px', 'width' : interest.count + '%'}"><span>{{interest.count}}</span></div></div></div>
+<main class="main-wrapper">
+        <section class="graphs" *ngIf="popularInterests">
+            <div class="page bar-graphs">
+                <div  class="data-visual-wrapper">
+                <h2>Interests</h2>
+                    <mat-card class="card">
+                        <mat-card-title>Interests</mat-card-title>
+                            <article *ngFor="let interest of popularInterests" class="data-visual">
+                                <div class="demographic-wrapper"><span class="bar-name">{{interest.name}}</span><div class="bar-wrapper"><div class="bar" [ngStyle]="{'height' : '30px', 'width' : interest.count + '%'}"><span>{{interest.count}}</span></div></div></div>
+                            </article>
+                    </mat-card>
+                </div>
+
+                <div  class="data-visual-wrapper ">
+                    <h2>Skills</h2>
+                    <mat-card class="skills">
+                        <article *ngFor="let skill of popularSkills" class="data-skills-visual">
+                            <div class="bar-wrapper"><div class="skills-bar" [ngStyle]="{'height' : skill.count + '%', 'width' : '35px'}"><span>{{skill.count}}</span></div></div>
+                            <span class="bar-title">{{skill.name}} </span>
                         </article>
-                </mat-card>
+                    </mat-card>
+                </div>
             </div>
+        </section>
 
-            <div  class="data-visual-wrapper ">
-                <h2>Skills</h2>
-                <mat-card class="skills">
-                    <article *ngFor="let skill of popularSkills" class="data-skills-visual">
-                        <div class="bar-wrapper"><div class="skills bar" [ngStyle]="{'height' : skill.count + '%', 'width' : '35px'}"><span>{{skill.count}}</span></div></div>
-                        <span class="bar-title">{{skill.name}} </span>
+        <section class="lists-wrapper">
+            <div class="page lists">
+                <!-- <mat-card class="lists"> -->
+                    <article *ngFor="let list of doglist" class="list">
+                        <h2>{{list.name}}</h2>
+                        <!-- <img src="{{list.img}}" alt="{{list.img}}"/> -->
+                        <ul>
+                            <li *ngFor="let item of list.list">{{item}}</li>
+                        </ul>
                     </article>
-                </mat-card>
+                <!-- </mat-card> -->
             </div>
-
         </section>
-
-         <section id="line-graphs">
-            <mat-card class="container" #container>
-                <!-- <svg class="curved">
-                    <linearGradient id="grad1" x1="0%" y1="100%" x2="0%" y2="0%">
-                        <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:0.5" />
-                        <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:0" />
-                    </linearGradient>
-                </svg> 
-
-                <svg width="100%" height="160" xmlns="http://www.w3.org/2000/svg" class="curved" viewBox="0 0 100% 500">
-                    <path [attr.d]="getCurvedPath()"  stroke="black" fill="url(#grad1)"/>
-                </svg> -->
-            </mat-card>
-        </section> 
-
-        <section id="lists">
-
-        </section>
-    </div>
 </main>

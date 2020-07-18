@@ -5,6 +5,7 @@
 
 #navigation nav ul {
     display: flex;
+    margin:0;
 }
 
 #navigation li {

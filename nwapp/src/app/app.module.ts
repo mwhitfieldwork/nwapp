@@ -31,7 +31,8 @@ const routes : Routes =  [
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    InMemoryWebApiModule.forRoot(ProductData),
+    InMemoryWebApiModule.forRoot(ProductData,{ dataEncapsulation: false,
+      passThruUnknownUrl: true }),
     ProductsModule,
     DashboardModule
   ],
