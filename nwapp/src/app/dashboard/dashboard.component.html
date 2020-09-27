@@ -2,9 +2,9 @@
 <main class="main-wrapper">
         <section class="graphs" *ngIf="popularInterests">
             <div class="page bar-graphs">
-                <div  class="data-visual-wrapper">
+                <div  class="data__vertical data-visual-wrapper">
                 <h2>Interests</h2>
-                    <mat-card class="card">
+                    <mat-card class="card card__interests">
                         <mat-card-title>Interests</mat-card-title>
                             <article *ngFor="let interest of popularInterests" class="data-visual">
                                 <div class="demographic-wrapper"><span class="bar-name">{{interest.name}}</span><div class="bar-wrapper"><div class="bar" [ngStyle]="{'height' : '30px', 'width' : interest.count + '%'}"><span>{{interest.count}}</span></div></div></div>
@@ -12,9 +12,9 @@
                     </mat-card>
                 </div>
 
-                <div  class="data-visual-wrapper ">
+                <div  class="data__horizontal data-visual-wrapper ">
                     <h2>Skills</h2>
-                    <mat-card class="skills">
+                    <mat-card class="skills card__skills">
                         <article *ngFor="let skill of popularSkills" class="data-skills-visual">
                             <div class="bar-wrapper"><div class="skills-bar" [ngStyle]="{'height' : skill.count + '%', 'width' : '35px'}"><span>{{skill.count}}</span></div></div>
                             <span class="bar-title">{{skill.name}} </span>
