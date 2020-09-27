@@ -190,6 +190,10 @@ body {
         width:100%;
     }
 
+    .card__skills, .card__interests{
+        width:90%;
+    }
+
     .card__skills {
         height:200px;
     }
@@ -210,6 +214,6 @@ body {
     }
 
     .list {
-        width:100%;
+        width:90%;
     }
 }
