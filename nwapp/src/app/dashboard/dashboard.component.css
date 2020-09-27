@@ -176,3 +176,44 @@ body {
 .list  h2 {
     font-size:1.7em;
 }
+
+@media screen and (max-width:595px){
+    .bar-graphs {
+        flex-wrap: wrap;
+    }
+    .main-wrapper .graphs, .bar-graphs {
+        margin: 0;
+        padding:0;
+    }
+
+    .data-visual-wrapper{
+        width:100%;
+    }
+
+    .card__skills, .card__interests{
+        width:90%;
+    }
+
+    .card__skills {
+        height:200px;
+    }
+
+    .card__skills .bar-title{
+        display:none;
+    }
+
+    .main-wrapper .lists-wrapper {
+        padding:0;
+        margin:0;
+    }
+
+    .lists {
+        -moz-column-count:    1;
+        -webkit-column-count: 1;
+        column-count:         1;
+    }
+
+    .list {
+        width:90%;
+    }
+}
