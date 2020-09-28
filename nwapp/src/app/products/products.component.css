@@ -32,6 +32,10 @@
         padding:0;
     }
 
+    .btn-success {
+        display:none;
+    }
+
     .table-mat td:nth-child(2), 
     .table-mat th:nth-child(2),
     .table-mat td:nth-child(3), 
